@@ -32,7 +32,9 @@ database in `data/demo/`, and a Discord payload preview written to `data/demo/di
 ## 2. Local configuration (Windows)
 
 ```powershell
-cd C:\Users\<USERNAME>\Projects\youtube-report-bot
+cd C:\Users\<USERNAME>\Projects
+git clone https://github.com/davixeqq1/davixeqq-analytics.git youtube-report-bot
+cd youtube-report-bot
 py -3 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
@@ -75,13 +77,16 @@ Action: *Start a program*
 See README → *Raspberry Pi deployment*. Authorize on Windows (it needs a browser), then copy
 `credentials.json` and `token.json` to the Pi with `scp`. Both are `chmod 600` by `install.sh`.
 
-## 7. GitHub
+## 7. Publishing your own copy on GitHub
+
+Only if you maintain your own fork or copy — replace the placeholders with your account and
+repository name.
 
 ```powershell
 git add .
 git status            # verify: no .env, credentials.json, token.json, data/, logs/
 git commit -m "Initial commit"
-git remote add origin https://github.com/<you>/youtube-report-bot.git
+git remote add origin https://github.com/<your-account>/<your-repository>.git
 git push -u origin main
 ```
 

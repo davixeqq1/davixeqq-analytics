@@ -34,7 +34,7 @@ layout are built in; missing values are shown as `n/a`, never as zero.
 ## Quick start (no credentials needed)
 
 ```bash
-git clone https://github.com/<you>/youtube-report-bot.git && cd youtube-report-bot
+git clone https://github.com/davixeqq1/davixeqq-analytics.git youtube-report-bot && cd youtube-report-bot
 python -m venv .venv                      # Windows: py -3 -m venv .venv
 source .venv/bin/activate                 # Windows: .\.venv\Scripts\Activate.ps1
 pip install -e ".[dev]"
@@ -240,7 +240,7 @@ format, views were identical, watch time was a few percent low (per-row minute r
 ## 11. Installation
 
 ```powershell
-git clone https://github.com/<you>/youtube-report-bot.git
+git clone https://github.com/davixeqq1/davixeqq-analytics.git youtube-report-bot
 cd youtube-report-bot
 py -3 -m venv .venv
 .\.venv\Scripts\Activate.ps1          # Linux / Pi: source .venv/bin/activate
