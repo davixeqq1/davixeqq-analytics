@@ -1,0 +1,65 @@
+# --- Secrets (never commit) ---
+.env
+.env.*
+!.env.example
+.envrc
+credentials*.json
+client_secret*.json
+service-account*.json
+token.json
+token*.json
+*.token.json
+*.tmp
+secrets/
+*.pem
+*.key
+*.p12
+
+# --- Personal analytics data ---
+data/
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-wal
+*.db-shm
+*.sqlite-journal
+*.sqlite3-journal
+# run lock next to the database (data/yt_report.lock is also covered by data/)
+yt_report.lock
+backups/
+exports/
+*.zip
+
+# --- Logs ---
+logs/
+*.log
+
+# --- AI assistant / local tooling state ---
+.claude/
+CLAUDE.local.md
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.coverage
+htmlcov/
+
+# --- OS / editors / backups ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.bak
+*.swp
+*~

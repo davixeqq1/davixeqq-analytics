@@ -1,0 +1,18 @@
+# Install with:  crontab -e   (as the user that owns the project directory)
+# Times use the system timezone — set it once: sudo timedatectl set-timezone Europe/Bratislava
+# Adjust the path if the project is not in /home/pi/youtube-report-bot.
+#
+# Reporting weeks are Sunday–Saturday in Pacific time (REPORT_WEEK_END=saturday, DATA_LAG_DAYS=3).
+# Saturday's data is lag-complete from Tuesday 00:00 Pacific = Tuesday 09:00 CET / CEST, so the
+# report runs on Tuesday from 10:00. Every run from Tuesday to the following Monday (Pacific)
+# selects the same week, so a retry can never produce a second, different report.
+
+# Weekly report: every Tuesday at 10:00
+0 10 * * 2 /home/pi/youtube-report-bot/deploy/pi/run_report.sh
+
+# Retry at 14:00 in case the morning run failed. Same anchored week as the 10:00 run, so an
+# already-sent week is skipped (duplicate guard per channel + period).
+0 14 * * 2 /home/pi/youtube-report-bot/deploy/pi/run_report.sh
+
+# Weekly SQLite backup: Tuesday at 15:00
+0 15 * * 2 /home/pi/youtube-report-bot/deploy/pi/backup_db.sh >> /home/pi/youtube-report-bot/logs/cron.log 2>&1

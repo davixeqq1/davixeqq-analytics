@@ -1,0 +1,19 @@
+# Optional: keep the dashboard running on the Pi (bound to localhost only).
+# View it from your PC through an SSH tunnel:  ssh -L 8050:localhost:8050 pi@<pi-host>
+# Install:
+#   sudo cp deploy/pi/yt-report-dashboard.service /etc/systemd/system/
+#   sudo systemctl daemon-reload && sudo systemctl enable --now yt-report-dashboard
+[Unit]
+Description=yt-report local analytics dashboard
+After=network-online.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi/youtube-report-bot
+ExecStart=/home/pi/youtube-report-bot/.venv/bin/python -m yt_report dashboard --no-browser
+Restart=on-failure
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
